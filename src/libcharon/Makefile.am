@@ -558,6 +558,13 @@ if MONOLITHIC
 endif
 endif
 
+if USE_JITIKE
+  SUBDIRS += plugins/jitike
+if MONOLITHIC
+  libcharon_la_LIBADD += plugins/jitike/libstrongswan-jitike.la
+endif
+endif
+
 if USE_KERNEL_PFKEY
   SUBDIRS += plugins/kernel_pfkey
 if MONOLITHIC

@@ -268,6 +268,7 @@ ARG_ENABL_SET([duplicheck],     [advanced duplicate checking plugin using livene
 ARG_ENABL_SET([error-notify],   [enable error notification plugin.])
 ARG_ENABL_SET([farp],           [enable ARP faking plugin that responds to ARP requests to peers virtual IP])
 ARG_ENABL_SET([ha],             [enable high availability cluster plugin.])
+ARG_ENABL_SET([jitike],         [enable just-in-time high availability cluster plugin with redis integration.])
 ARG_ENABL_SET([led],            [enable plugin to control LEDs on IKEv2 activity using the Linux kernel LED subsystem.])
 ARG_ENABL_SET([load-tester],    [enable load testing plugin for IKEv2 daemon.])
 ARG_ENABL_SET([lookip],         [enable fast virtual IP lookup and notification plugin.])
@@ -1494,6 +1495,7 @@ ADD_PLUGIN([p-cscf],               [c charon cmd])
 ADD_PLUGIN([android-dns],          [c charon])
 ADD_PLUGIN([android-log],          [c charon])
 ADD_PLUGIN([ha],                   [c charon])
+ADD_PLUGIN([jitike],               [c charon])
 ADD_PLUGIN([whitelist],            [c charon])
 ADD_PLUGIN([ext-auth],             [c charon])
 ADD_PLUGIN([lookip],               [c charon])
@@ -1612,6 +1614,7 @@ AM_CONDITIONAL(USE_UPDOWN, test x$updown = xtrue)
 AM_CONDITIONAL(USE_DHCP, test x$dhcp = xtrue)
 AM_CONDITIONAL(USE_LOAD_TESTER, test x$load_tester = xtrue)
 AM_CONDITIONAL(USE_HA, test x$ha = xtrue)
+AM_CONDITIONAL(USE_JITIKE, test x$jitike = xtrue)
 AM_CONDITIONAL(USE_KERNEL_NETLINK, test x$kernel_netlink = xtrue)
 AM_CONDITIONAL(USE_KERNEL_PFKEY, test x$kernel_pfkey = xtrue)
 AM_CONDITIONAL(USE_KERNEL_PFROUTE, test x$kernel_pfroute = xtrue)
@@ -1954,6 +1957,7 @@ AC_CONFIG_FILES([
 	src/libcharon/plugins/unity/Makefile
 	src/libcharon/plugins/uci/Makefile
 	src/libcharon/plugins/ha/Makefile
+	src/libcharon/plugins/jitike/Makefile
 	src/libcharon/plugins/kernel_netlink/Makefile
 	src/libcharon/plugins/kernel_pfkey/Makefile
 	src/libcharon/plugins/kernel_pfroute/Makefile
